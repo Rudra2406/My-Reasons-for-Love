@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>My Clam Harbor 💝 · 100 reasons</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #ffeef4 0%, #ffdee8 100%);
+      font-family: 'Quicksand', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      color: #381f2b;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* floating hearts background */
+    .floating-hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .heart-particle {
+      position: absolute;
+      font-size: 2.2rem;
+      opacity: 0.08;
+      animation: float 22s infinite linear;
+      color: #d45b7c;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg) scale(0.8); opacity: 0.08; }
+      100% { transform: translateY(-20vh) rotate(360deg) scale(1.4); opacity: 0.03; }
+    }
+
+    /* main card */
+    .love-card {
+      position: relative;
+      z-index: 20;
+      background: rgba(255, 245, 250, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 48px 24px 48px 24px;
+      padding: 2rem 1.5rem;
+      max-width: 900px;
+      width: 100%;
+      box-shadow: 0 20px 40px rgba(170, 80, 110, 0.3);
+      border: 2px solid rgba(255, 200, 220, 0.8);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 8vw, 3.2rem);
+      color: #b13b60;
+      text-shadow: 0 2px 10px #ffb8ce;
+      margin-bottom: 0.5rem;
+    }
+
+    .music-tag {
+      background: rgba(255, 220, 235, 0.7);
+      padding: 0.3rem 1.5rem;
+      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+      color: #822d4b;
+      border: 1px solid #ffc1d4;
+    }
+    .music-tag audio {
+      height: 32px;
+      width: 180px;
+      border-radius: 30px;
+    }
+
+    /* new intro text after song */
+    .intro-text {
+      font-size: 1.7rem;
+      font-weight: 500;
+      background: #ffd0df;
+      padding: 0.7rem 2rem;
+      border-radius: 50px;
+      display: inline-block;
+      color: #711f40;
+      margin: 0.5rem 0 1.5rem;
+      border: 2px solid #ffb0c8;
+    }
+
+    /* first three reasons */
+    .first-three {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      margin: 1rem 0 2rem;
+    }
+    .reason-big {
+      font-size: 2rem;
+      font-weight: 600;
+      background: rgba(255, 235, 245, 0.8);
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      box-shadow: 0 6px 0 #feb0c8;
+      border: 1px solid white;
+      width: fit-content;
+      animation: pop 0.3s ease;
+    }
+    @keyframes pop {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* question & buttons */
+    .question-box {
+      margin: 1rem 0 2rem;
+    }
+    .lovely-question {
+      font-size: 1.5rem;
+      font-weight: 500;
+      background: #ffd9e7;
+      padding: 1.2rem 1.8rem;
+      border-radius: 60px;
+      display: inline-block;
+      color: #711f40;
+      margin-bottom: 1.8rem;
+      border: 2px solid #ffb0c8;
+      max-width: 95%;
+      line-height: 1.5;
+    }
+    .button-panel {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+      min-height: 120px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      font-size: 2rem;
+      font-weight: 600;
+      padding: 0.8rem 2.5rem;
+      border: none;
+      border-radius: 80px;
+      background: white;
+      box-shadow: 0 8px 0 #d87b9a, 0 12px 22px rgba(170, 70, 100, 0.4);
+      cursor: pointer;
+      transition: all 0.1s ease;
+      font-family: 'Quicksand', sans-serif;
+      border: 2px solid #ffb7cf;
+      color: #711f40;
+      min-width: 150px;
+    }
+    .btn:active {
+      transform: translateY(6px);
+      box-shadow: 0 2px 0 #b45b7a, 0 8px 16px rgba(170, 70, 100, 0.3);
+    }
+    .btn-yes {
+      background: #ffe2ed;
+    }
+    .btn-no {
+      background: #f5eaef;
+      color: #8f3f5c;
+      position: relative;
+      transition: left 0.08s, top 0.08s;
+    }
+    /* Okay button style */
+    .btn-okay {
+      background: #ffd2e0;
+      font-size: 1.8rem;
+      padding: 0.6rem 2rem;
+      margin: 1rem auto 0.5rem;
+      display: inline-block;
+    }
+
+    /* extra reasons grid (stage 3) */
+    .extra-section {
+      margin-top: 2rem;
+      width: 100%;
+    }
+    .progress {
+      font-size: 1.5rem;
+      background: #ffd6e4;
+      padding: 0.5rem 1.8rem;
+      border-radius: 60px;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+    .reasons-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: center;
+      max-height: 400px;
+      overflow-y: auto;
+      padding: 0.5rem 0.3rem;
+      background: rgba(255, 240, 250, 0.3);
+      border-radius: 30px;
+    }
+    .reason-card {
+      background: rgba(255, 245, 250, 0.9);
+      backdrop-filter: blur(2px);
+      padding: 0.5rem 1.2rem 0.5rem 1.5rem;
+      border-radius: 40px;
+      border: 1.8px solid #ffbfd2;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      box-shadow: 0 4px 8px rgba(190, 100, 130, 0.15);
+      animation: cardFade 0.3s ease;
+      color: #4b2635;
+    }
+    @keyframes cardFade {
+      0% { opacity: 0; transform: translateY(8px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .card-num {
+      background: #fec7db;
+      padding: 0.2rem 0.7rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #5b1734;
+    }
+
+    /* big love message with hearts animation */
+    .big-love {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #b3154b;
+      text-shadow: 0 0 20px #ffa5c3;
+      margin: 2rem 0 1rem;
+      padding: 1.5rem;
+      background: rgba(255, 230, 240, 0.7);
+      border-radius: 80px;
+      backdrop-filter: blur(8px);
+      border: 3px solid #ffa5c3;
+      animation: heartbeat 1.5s infinite ease-in-out;
+      position: relative;
+    }
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      25% { transform: scale(1.05); }
+      35% { transform: scale(1.1); }
+      45% { transform: scale(1.05); }
+      55% { transform: scale(1); }
+      100% { transform: scale(1); }
+    }
+    .big-love::before, .big-love::after {
+      content: "❤️";
+      font-size: 4rem;
+      position: absolute;
+      opacity: 0.4;
+      animation: floatHeart 3s infinite;
+    }
+    .big-love::before {
+      top: -30px;
+      left: 10px;
+      animation-delay: 0.2s;
+    }
+    .big-love::after {
+      bottom: -30px;
+      right: 10px;
+      animation-delay: 0.7s;
+    }
+    @keyframes floatHeart {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.4; }
+      50% { transform: translateY(-15px) rotate(10deg); opacity: 0.8; }
+      100% { transform: translateY(0) rotate(0deg); opacity: 0.4; }
+    }
+
+    .reset-link {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      color: #b04367;
+      text-decoration: underline dotted;
+      cursor: pointer;
+      opacity: 0.8;
+    }
+    .reset-link:hover { opacity: 1; }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* center okay button */
+    .okay-container {
+      display: flex;
+      justify-content: center;
+      margin: 0.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="floating-hearts">
+    <span class="heart-particle" style="left:5%; animation-duration:15s;">❤️</span>
+    <span class="heart-particle" style="left:20%; animation-duration:19s; animation-delay:1s;">❤️</span>
+    <span class="heart-particle" style="left:40%; animation-duration:23s;">❤️</span>
+    <span class="heart-particle" style="left:60%; animation-duration:18s; animation-delay:2s;">❤️</span>
+    <span class="heart-particle" style="left:80%; animation-duration:21s;">❤️</span>
+    <span class="heart-particle" style="left:90%; animation-duration:25s; animation-delay:0.5s;">❤️</span>
+  </div>
+
+  <div class="love-card">
+    <h1>💝 My Clam Harbor Diva</h1>
+    
+    <div class="music-tag">
+      <span>🎵 Teri aankhon mein jo noor hai</span>
+      <audio controls loop>
+        <source src="https://drive.google.com/uc?export=download&id=1771-6PraHY47vUXcU4bZcW2i4ES_laB2" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <!-- NEW: Intro text after song, before three reasons -->
+    <div class="intro-text">💬 I told you I have 3 reasons why I love you…</div>
+
+    <!-- Stage 1: first three reasons -->
+    <div id="firstThreeContainer" class="first-three"></div>
+
+    <!-- Stage 2: new message below reasons + yes/no buttons -->
+    <div id="questionContainer">
+      <div class="lovely-question">
+        But wait sweeta, honestly I have 100 reasons.<br>
+        Do you really wanna know?<br>
+        I can't wait my whole life telling you one by one.<br>
+        <span style="font-size:1.3rem; display:block; margin-top:0.5rem;">✨ Remember Click on Yes. ✨</span>
+      </div>
+      <div class="button-panel" id="buttonPanel">
+        <button class="btn btn-yes" id="yesBtn">Yes 😊</button>
+        <button class="btn btn-no" id="noBtn">No 😅</button>
+      </div>
+    </div>
+
+    <!-- Stage 3: extra reasons + Okay button + big love message -->
+    <div id="extraContainer" class="extra-section hidden">
+      <div class="progress" id="progressDisplay">✨ 4 / 100 ✨</div>
+      <div class="reasons-grid" id="reasonsGrid"></div>
+      
+      <!-- Okay button (hidden until all reasons shown) -->
+      <div class="okay-container">
+        <button class="btn btn-okay hidden" id="okayBtn">Okay? 💖</button>
+      </div>
+      
+      <!-- Big love message (hidden initially) -->
+      <div id="bigLoveMessage" class="big-love hidden">
+        I LOVE YOU My Clam Harbor 💝
+      </div>
+
+      <div class="reset-link" id="resetBtn">💞 start over</div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const reasons = [
+        "your smile", "your laugh", "your eyes", "your personality", "your hair",
+        "your humor", "your voice", "your style", "your name", "the way you treat me",
+        "your kindness", "the way you care", "how easily you make me laugh", "our late-night calls",
+        "our calls in general", "the way you laugh with me", "the way you talk to me",
+        "how you motivate me", "your honesty", "your loyalty", "how strong you are",
+        "how quickly we clicked", "the peace I found with you", "finding my best friend in you",
+        "seeing my future in your eyes", "how fun you are", "the way you appreciate everything",
+        "your gratefulness", "how you never doubt me", "the way you support me",
+        "how proud you are of me", "always being by my side", "loving me unconditionally",
+        "making me feel enough", "making me feel worth it", "inspiring me",
+        "helping me become better", "changing my view on the world", "staying when things are hard",
+        "teaching me things", "never getting disappointed in me", "talking calmly",
+        "never giving up", "making me feel so loved", "making me feel cared for",
+        "always being there for me", "the way you treat people", "the way you treat animals",
+        "your love for kids", "always thinking of me", "trying your best",
+        "being a bad influence (in a fun way)", "being comfortable in silence with you",
+        "never being aggressive without a reason", "always being motivated",
+        "having a reason for everything", "trying to make people happy", "how you see things",
+        "making me so happy", "giving me a reason", "your lips", "your presence",
+        "keeping your promises", "being reliable", "helping me", "being sweet",
+        "being kind", "being calm even when it’s stressful", "talking to you feels right",
+        "being my soulmate", "giving me special memories", "loving every moment with you",
+        "our communication", "being committed", "being disciplined",
+        "loving me for more than just my body", "believing in me", "believing in yourself",
+        "being mostly positive", "being perfect in your own way", "never getting bored of me",
+        "not caring if I have money", "calling me when I ask", "your hugs",
+        "calling me if I’m upset", "helping me when I’m upset", "not giving up on your goals",
+        "giving me hope", "making life easier", "making life feel worth it", "being my safe place",
+        "the way you hug me", "your smell", "the little things you do",
+        "how you remember small details", "your patience", "the way you say my name",
+        "your courage", "your dreams", "just because you're you"
+      ]; // 100 items
+
+      const firstThreeDiv = document.getElementById('firstThreeContainer');
+      const questionDiv = document.getElementById('questionContainer');
+      const extraDiv = document.getElementById('extraContainer');
+      const yesBtn = document.getElementById('yesBtn');
+      const noBtn = document.getElementById('noBtn');
+      const buttonPanel = document.getElementById('buttonPanel');
+      const progressSpan = document.getElementById('progressDisplay');
+      const grid = document.getElementById('reasonsGrid');
+      const resetBtn = document.getElementById('resetBtn');
+      const okayBtn = document.getElementById('okayBtn');
+      const bigLoveMsg = document.getElementById('bigLoveMessage');
+
+      // render first three
+      function renderFirstThree() {
+        firstThreeDiv.innerHTML = '';
+        for (let i = 0; i < 3; i++) {
+          const el = document.createElement('div');
+          el.className = 'reason-big';
+          el.textContent = `${i+1}. ${reasons[i]}`;
+          firstThreeDiv.appendChild(el);
+        }
+      }
+      renderFirstThree();
+
+      // runaway No button
+      let noMoving = false;
+      function moveNoButton() {
+        if (!noBtn || !buttonPanel) return;
+        const panel = buttonPanel.getBoundingClientRect();
+        const btn = noBtn.getBoundingClientRect();
+        const maxX = panel.width - btn.width - 10;
+        const maxY = panel.height - btn.height - 10;
+        if (maxX <= 0 || maxY <= 0) return;
+        const newX = Math.random() * maxX;
+        const newY = Math.random() * maxY;
+        noBtn.style.position = 'absolute';
+        noBtn.style.left = `${newX}px`;
+        noBtn.style.top = `${newY}px`;
+        noBtn.classList.add('runaway');
+        noMoving = true;
+      }
+      function resetNoButton() {
+        noBtn.style.position = 'relative';
+        noBtn.style.left = '';
+        noBtn.style.top = '';
+        noBtn.classList.remove('runaway');
+        noMoving = false;
+      }
+      noBtn.addEventListener('mouseenter', (e) => {
+        if (!questionDiv.classList.contains('hidden')) moveNoButton();
+      });
+      noBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (!questionDiv.classList.contains('hidden')) moveNoButton();
+      });
+
+      // Yes button click
+      yesBtn.addEventListener('click', () => {
+        resetNoButton();
+        questionDiv.classList.add('hidden');
+        extraDiv.classList.remove('hidden');
+
+        let currentIdx = 3;
+        const total = reasons.length;
+        grid.innerHTML = '';
+        // hide okay button and big message at start
+        okayBtn.classList.add('hidden');
+        bigLoveMsg.classList.add('hidden');
+
+        function addNext() {
+          if (currentIdx >= total) {
+            progressSpan.innerText = '💯 100 reasons! 💯';
+            // show the Okay button
+            okayBtn.classList.remove('hidden');
+            return;
+          }
+          progressSpan.innerText = `✨ ${currentIdx+1} / 100 ✨`;
+
+          const card = document.createElement('div');
+          card.className = 'reason-card';
+          card.innerHTML = `
+            <span class="heart-icon">❤️</span>
+            <span class="card-num">#${currentIdx+1}</span>
+            <span>${reasons[currentIdx]}</span>
+          `;
+          grid.appendChild(card);
+          grid.scrollTop = grid.scrollHeight;
+
+          currentIdx++;
+          setTimeout(addNext, 160);
+        }
+        addNext();
+      });
+
+      // Okay button click: show big love message
+      okayBtn.addEventListener('click', () => {
+        okayBtn.classList.add('hidden');
+        bigLoveMsg.classList.remove('hidden');
+      });
+
+      // reset everything
+      resetBtn.addEventListener('click', () => {
+        extraDiv.classList.add('hidden');
+        questionDiv.classList.remove('hidden');
+        resetNoButton();
+        renderFirstThree();
+        grid.innerHTML = '';
+        progressSpan.innerText = '✨ 4 / 100 ✨';
+        okayBtn.classList.add('hidden');
+        bigLoveMsg.classList.add('hidden');
+      });
+
+      window.addEventListener('resize', () => {
+        if (!questionDiv.classList.contains('hidden')) resetNoButton();
+      });
+    })();
+  </script>
+</body>
+</html>
