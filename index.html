@@ -92,7 +92,7 @@
       border-radius: 30px;
     }
 
-    /* new intro text after song */
+    /* intro text after song */
     .intro-text {
       font-size: 1.7rem;
       font-weight: 500;
@@ -326,19 +326,21 @@
   <div class="love-card">
     <h1>💝 My Clam Harbor Diva</h1>
     
+    <!-- LOCAL AUDIO (download and place My Diva.mp3 in same folder) -->
     <div class="music-tag">
+      <span>🎵 Teri aankhon mein jo noor hai</span>
       <audio controls loop>
-         <source src="Teri aankhon mein jo noor hai.mp3" type="audio/mpeg">
+        <source src="My Diva.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
       </audio>
     </div>
 
-    <!-- NEW: Intro text after song, before three reasons -->
     <div class="intro-text">💬 I told you I have 3 reasons why I love you…</div>
 
-    <!-- Stage 1: first three reasons -->
+    <!-- first three reasons -->
     <div id="firstThreeContainer" class="first-three"></div>
 
-    <!-- Stage 2: new message below reasons + yes/no buttons -->
+    <!-- question + yes/no buttons -->
     <div id="questionContainer">
       <div class="lovely-question">
         But wait sweeta, honestly I have 100 reasons.<br>
@@ -352,17 +354,15 @@
       </div>
     </div>
 
-    <!-- Stage 3: extra reasons + Okay button + big love message -->
+    <!-- extra reasons + Okay button + big love message -->
     <div id="extraContainer" class="extra-section hidden">
       <div class="progress" id="progressDisplay">✨ 4 / 100 ✨</div>
       <div class="reasons-grid" id="reasonsGrid"></div>
       
-      <!-- Okay button (hidden until all reasons shown) -->
       <div class="okay-container">
         <button class="btn btn-okay hidden" id="okayBtn">Okay? 💖</button>
       </div>
       
-      <!-- Big love message (hidden initially) -->
       <div id="bigLoveMessage" class="big-love hidden">
         I LOVE YOU My Clam Harbor 💝
       </div>
@@ -419,7 +419,6 @@
       const okayBtn = document.getElementById('okayBtn');
       const bigLoveMsg = document.getElementById('bigLoveMessage');
 
-      // render first three
       function renderFirstThree() {
         firstThreeDiv.innerHTML = '';
         for (let i = 0; i < 3; i++) {
@@ -463,7 +462,6 @@
         if (!questionDiv.classList.contains('hidden')) moveNoButton();
       });
 
-      // Yes button click
       yesBtn.addEventListener('click', () => {
         resetNoButton();
         questionDiv.classList.add('hidden');
@@ -472,14 +470,12 @@
         let currentIdx = 3;
         const total = reasons.length;
         grid.innerHTML = '';
-        // hide okay button and big message at start
         okayBtn.classList.add('hidden');
         bigLoveMsg.classList.add('hidden');
 
         function addNext() {
           if (currentIdx >= total) {
             progressSpan.innerText = '💯 100 reasons! 💯';
-            // show the Okay button
             okayBtn.classList.remove('hidden');
             return;
           }
@@ -501,13 +497,11 @@
         addNext();
       });
 
-      // Okay button click: show big love message
       okayBtn.addEventListener('click', () => {
         okayBtn.classList.add('hidden');
         bigLoveMsg.classList.remove('hidden');
       });
 
-      // reset everything
       resetBtn.addEventListener('click', () => {
         extraDiv.classList.add('hidden');
         questionDiv.classList.remove('hidden');
